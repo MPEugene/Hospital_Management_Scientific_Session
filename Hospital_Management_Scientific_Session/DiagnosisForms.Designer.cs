@@ -46,13 +46,13 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
             label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
@@ -119,7 +119,7 @@
             // 
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(29, 481);
+            dataGridView1.Location = new Point(29, 492);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(892, 204);
             dataGridView1.TabIndex = 25;
@@ -191,6 +191,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // PatientInfo
             // 
@@ -254,65 +255,17 @@
             panel2.Size = new Size(556, 344);
             panel2.TabIndex = 30;
             // 
-            // label4
+            // label10
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.MenuHighlight;
-            label4.Location = new Point(142, 10);
-            label4.Name = "label4";
-            label4.Size = new Size(277, 29);
-            label4.TabIndex = 3;
-            label4.Text = "DIAGNOSIS SUMMARY";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.InactiveCaptionText;
-            label5.Location = new Point(24, 71);
-            label5.Name = "label5";
-            label5.Size = new Size(136, 22);
-            label5.TabIndex = 4;
-            label5.Text = "Patient Name ";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.InactiveCaptionText;
-            label6.Location = new Point(24, 176);
-            label6.Name = "label6";
-            label6.Size = new Size(109, 22);
-            label6.TabIndex = 5;
-            label6.Text = "Symptoms";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.InactiveCaptionText;
-            label7.Location = new Point(195, 176);
-            label7.Name = "label7";
-            label7.Size = new Size(105, 22);
-            label7.TabIndex = 6;
-            label7.Text = "Medicines";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.InactiveCaptionText;
-            label8.Location = new Point(197, 71);
-            label8.Name = "label8";
-            label8.Size = new Size(103, 22);
-            label8.TabIndex = 7;
-            label8.Text = "Diagnosis";
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = SystemColors.InactiveCaptionText;
+            label10.Location = new Point(202, 320);
+            label10.Name = "label10";
+            label10.Size = new Size(351, 16);
+            label10.TabIndex = 9;
+            label10.Text = "Hospital Management Sysyem by: Eugen and Andreea";
             // 
             // label9
             // 
@@ -326,17 +279,65 @@
             label9.TabIndex = 8;
             label9.Text = "Date";
             // 
-            // label10
+            // label8
             // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.Transparent;
-            label10.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.InactiveCaptionText;
-            label10.Location = new Point(202, 320);
-            label10.Name = "label10";
-            label10.Size = new Size(351, 16);
-            label10.TabIndex = 9;
-            label10.Text = "Hospital Management Sysyem by: Eugen and Andreea";
+            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.InactiveCaptionText;
+            label8.Location = new Point(197, 71);
+            label8.Name = "label8";
+            label8.Size = new Size(103, 22);
+            label8.TabIndex = 7;
+            label8.Text = "Diagnosis";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = SystemColors.InactiveCaptionText;
+            label7.Location = new Point(195, 176);
+            label7.Name = "label7";
+            label7.Size = new Size(105, 22);
+            label7.TabIndex = 6;
+            label7.Text = "Medicines";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.InactiveCaptionText;
+            label6.Location = new Point(24, 176);
+            label6.Name = "label6";
+            label6.Size = new Size(109, 22);
+            label6.TabIndex = 5;
+            label6.Text = "Symptoms";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.InactiveCaptionText;
+            label5.Location = new Point(24, 71);
+            label5.Name = "label5";
+            label5.Size = new Size(136, 22);
+            label5.TabIndex = 4;
+            label5.Text = "Patient Name ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.MenuHighlight;
+            label4.Location = new Point(142, 10);
+            label4.Name = "label4";
+            label4.Size = new Size(277, 29);
+            label4.TabIndex = 3;
+            label4.Text = "DIAGNOSIS SUMMARY";
             // 
             // DiagnosisForms
             // 

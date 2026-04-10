@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Doctor));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            PatientInfo = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             DoctorId = new TextBox();
@@ -40,12 +42,10 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            PatientInfo = new PictureBox();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -61,6 +61,29 @@
             panel1.Size = new Size(945, 114);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(840, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(72, 69);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // PatientInfo
+            // 
+            PatientInfo.BackColor = Color.Transparent;
+            PatientInfo.Image = (Image)resources.GetObject("PatientInfo.Image");
+            PatientInfo.Location = new Point(1109, 22);
+            PatientInfo.Name = "PatientInfo";
+            PatientInfo.Size = new Size(88, 66);
+            PatientInfo.SizeMode = PictureBoxSizeMode.Zoom;
+            PatientInfo.TabIndex = 9;
+            PatientInfo.TabStop = false;
             // 
             // label2
             // 
@@ -176,28 +199,6 @@
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
             // 
-            // PatientInfo
-            // 
-            PatientInfo.BackColor = Color.Transparent;
-            PatientInfo.Image = (Image)resources.GetObject("PatientInfo.Image");
-            PatientInfo.Location = new Point(1109, 22);
-            PatientInfo.Name = "PatientInfo";
-            PatientInfo.Size = new Size(88, 66);
-            PatientInfo.SizeMode = PictureBoxSizeMode.Zoom;
-            PatientInfo.TabIndex = 9;
-            PatientInfo.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(840, 22);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(72, 69);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
             // Doctor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -217,9 +218,9 @@
             Text = "Doctor";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PatientInfo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PatientInfo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

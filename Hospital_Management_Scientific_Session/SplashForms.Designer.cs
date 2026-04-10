@@ -59,9 +59,9 @@
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(266, 108);
+            progressBar1.Location = new Point(35, 95);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(100, 23);
+            progressBar1.Size = new Size(473, 28);
             progressBar1.TabIndex = 4;
             // 
             // SplashForms

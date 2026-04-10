@@ -36,5 +36,12 @@ namespace Hospital_Management_Scientific_Session
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Home h = new Home();
+            h.Show();
+            this.Hide();
+        }
     }
 }
