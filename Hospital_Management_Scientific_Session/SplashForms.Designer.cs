@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
-            progressBar1 = new ProgressBar();
+            Myprogressbar = new ProgressBar();
+            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // label1
@@ -44,6 +46,7 @@
             label1.Size = new Size(473, 32);
             label1.TabIndex = 2;
             label1.Text = "HOSPITAL MANAGEMENT SYSTEM";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -57,12 +60,16 @@
             label2.TabIndex = 3;
             label2.Text = "by: Eugen and Andreea";
             // 
-            // progressBar1
+            // Myprogressbar
             // 
-            progressBar1.Location = new Point(35, 95);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(473, 28);
-            progressBar1.TabIndex = 4;
+            Myprogressbar.Location = new Point(35, 95);
+            Myprogressbar.Name = "Myprogressbar";
+            Myprogressbar.Size = new Size(473, 28);
+            Myprogressbar.TabIndex = 4;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // SplashForms
             // 
@@ -70,12 +77,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Highlight;
             ClientSize = new Size(542, 308);
-            Controls.Add(progressBar1);
+            Controls.Add(Myprogressbar);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SplashForms";
             Text = "SplashForms";
+            Load += SplashForms_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -84,6 +92,7 @@
 
         private Label label1;
         private Label label2;
-        private ProgressBar progressBar1;
+        private ProgressBar Myprogressbar;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -38,5 +38,32 @@ namespace Hospital_Management_Scientific_Session
             Form1 h = new Form1();
             h.Show();
         }
+
+        private void PatientInfo_Click(object sender, EventArgs e)
+        {
+            PatientForm Pat = new PatientForm();
+            Pat.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Doctor_Click(object sender, EventArgs e)
+        {
+            Doctor Doc = new Doctor();
+            Doc.Show();
+            this.Hide();
+
+        }
+
+        private void Diagnosis_Click(object sender, EventArgs e)
+        {
+            DiagnosisForms Diag = new DiagnosisForms();
+            Diag.Show();
+            this.Hide();
+        }
     }
 }

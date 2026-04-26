@@ -1,7 +1,21 @@
+using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Microsoft.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 namespace Hospital_Management_Scientific_Session
 {
     public partial class Form1 : Form
     {
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mihai\OneDrive\Documents\HMSdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
         public Form1()
         {
             InitializeComponent();
@@ -29,9 +43,36 @@ namespace Hospital_Management_Scientific_Session
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Home H = new Home();
-            H.Show();
-            this.Hide();
+            if (DocNameTb.Text == "" || PassTb.Text == "")
+                MessageBox.Show("Enter a UserName and a Password");
+            else 
+            {
+                Con.Open();
+                SqlDataAdapter sda = new SqlDataAdapter("select Count(*) from DoctorTbl where DocName='"+DocNameTb.Text+"'and DocPass='"+PassTb.Text+"'",Con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                if (dt.Rows[0][0].ToString() == "1")
+                {
+                    Home H = new Home();
+                    H.Show();
+                    this.Hide();
+
+                }
+                else {
+
+                    MessageBox.Show("Wrong UserName or Password");
+                }
+                Con.Close();
+            }
+
+              
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            DocNameTb.Text = "";
+            PassTb.Text = "";
+
         }
     }
 }

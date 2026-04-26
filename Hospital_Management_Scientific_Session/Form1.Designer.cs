@@ -32,8 +32,8 @@
             panel1 = new Panel();
             label1 = new Label();
             LoginButton = new Button();
-            DoctorIName = new TextBox();
-            DocPassword = new TextBox();
+            DocNameTb = new TextBox();
+            PassTb = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             label2 = new Label();
             panel1.SuspendLayout();
@@ -67,7 +67,7 @@
             LoginButton.FlatStyle = FlatStyle.Flat;
             LoginButton.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LoginButton.ForeColor = SystemColors.ButtonFace;
-            LoginButton.Location = new Point(47, 254);
+            LoginButton.Location = new Point(48, 254);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(202, 44);
             LoginButton.TabIndex = 1;
@@ -75,26 +75,27 @@
             LoginButton.UseVisualStyleBackColor = false;
             LoginButton.Click += LoginButton_Click;
             // 
-            // DoctorIName
+            // DocNameTb
             // 
-            DoctorIName.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DoctorIName.ForeColor = SystemColors.InfoText;
-            DoctorIName.Location = new Point(47, 117);
-            DoctorIName.Name = "DoctorIName";
-            DoctorIName.Size = new Size(202, 29);
-            DoctorIName.TabIndex = 3;
-            DoctorIName.Text = "DocName: ";
-            DoctorIName.TextChanged += textBox2_TextChanged;
+            DocNameTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DocNameTb.ForeColor = SystemColors.InfoText;
+            DocNameTb.Location = new Point(47, 117);
+            DocNameTb.Name = "DocNameTb";
+            DocNameTb.Size = new Size(202, 29);
+            DocNameTb.TabIndex = 3;
+            DocNameTb.Text = "DocName: ";
+            DocNameTb.TextChanged += textBox2_TextChanged;
             // 
-            // DocPassword
+            // PassTb
             // 
-            DocPassword.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DocPassword.ForeColor = SystemColors.InfoText;
-            DocPassword.Location = new Point(47, 188);
-            DocPassword.Name = "DocPassword";
-            DocPassword.Size = new Size(202, 29);
-            DocPassword.TabIndex = 4;
-            DocPassword.Text = "DocPassword: ";
+            PassTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PassTb.ForeColor = SystemColors.InfoText;
+            PassTb.Location = new Point(47, 188);
+            PassTb.Name = "PassTb";
+            PassTb.Size = new Size(202, 29);
+            PassTb.TabIndex = 4;
+            PassTb.Text = "DocPassword: ";
+            PassTb.UseSystemPasswordChar = true;
             // 
             // contextMenuStrip1
             // 
@@ -111,6 +112,7 @@
             label2.Size = new Size(62, 24);
             label2.TabIndex = 5;
             label2.Text = "Clear";
+            label2.Click += label2_Click;
             // 
             // Form1
             // 
@@ -119,8 +121,8 @@
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(281, 374);
             Controls.Add(label2);
-            Controls.Add(DocPassword);
-            Controls.Add(DoctorIName);
+            Controls.Add(PassTb);
+            Controls.Add(DocNameTb);
             Controls.Add(LoginButton);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -138,8 +140,8 @@
         private Panel panel1;
         private Label label1;
         private Button LoginButton;
-        private TextBox DoctorIName;
-        private TextBox DocPassword;
+        private TextBox DocNameTb;
+        private TextBox PassTb;
         private ContextMenuStrip contextMenuStrip1;
         private Label label2;
     }

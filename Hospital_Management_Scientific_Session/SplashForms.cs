@@ -16,5 +16,30 @@ namespace Hospital_Management_Scientific_Session
         {
             InitializeComponent();
         }
+        int startpoint = 0;
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            startpoint += 1;
+            Myprogressbar.Value = startpoint;
+            if (Myprogressbar.Value == 100)
+            {
+                Myprogressbar.Value = 0;
+                timer1.Stop();
+                Form1 login = new Form1();
+                login.Show();
+                this.Hide();
+            }
+
+        }
+
+        private void SplashForms_Load(object sender, EventArgs e)
+        {
+            this.timer1.Start();
+        }
     }
 }

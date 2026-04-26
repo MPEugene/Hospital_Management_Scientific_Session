@@ -34,18 +34,18 @@
             PatientInfo = new PictureBox();
             label2 = new Label();
             label1 = new Label();
-            DoctorId = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            dataGridView1 = new DataGridView();
+            DocId = new TextBox();
+            DocExp = new TextBox();
+            DocName = new TextBox();
+            DocPass = new TextBox();
+            DoctorGV = new DataGridView();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DoctorGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -110,52 +110,55 @@
             label1.Text = "HOSPITAL MANAGEMENT SYSTEM";
             label1.Click += label1_Click;
             // 
-            // DoctorId
+            // DocId
             // 
-            DoctorId.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DoctorId.Location = new Point(29, 183);
-            DoctorId.Name = "DoctorId";
-            DoctorId.Size = new Size(400, 35);
-            DoctorId.TabIndex = 1;
-            DoctorId.Text = "DoctorID: ";
-            DoctorId.TextChanged += DoctorId_TextChanged;
+            DocId.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DocId.Location = new Point(29, 183);
+            DocId.Name = "DocId";
+            DocId.Size = new Size(400, 35);
+            DocId.TabIndex = 1;
+            DocId.Text = "DoctorID: ";
+            DocId.TextChanged += DoctorId_TextChanged;
             // 
-            // textBox1
+            // DocExp
             // 
-            textBox1.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(29, 317);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(400, 35);
-            textBox1.TabIndex = 2;
-            textBox1.Text = "Years of Experience: ";
-            textBox1.TextChanged += textBox1_TextChanged;
+            DocExp.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DocExp.Location = new Point(29, 317);
+            DocExp.Name = "DocExp";
+            DocExp.Size = new Size(400, 35);
+            DocExp.TabIndex = 2;
+            DocExp.Text = "Years of Experience: ";
+            DocExp.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // DocName
             // 
-            textBox2.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(29, 251);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(400, 35);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "Doctor Name: ";
+            DocName.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DocName.Location = new Point(29, 251);
+            DocName.Name = "DocName";
+            DocName.Size = new Size(400, 35);
+            DocName.TabIndex = 3;
+            DocName.Text = "Doctor Name: ";
             // 
-            // textBox3
+            // DocPass
             // 
-            textBox3.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(29, 386);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(400, 35);
-            textBox3.TabIndex = 4;
-            textBox3.Text = "Password: ";
+            DocPass.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DocPass.Location = new Point(29, 386);
+            DocPass.Name = "DocPass";
+            DocPass.Size = new Size(400, 35);
+            DocPass.TabIndex = 4;
+            DocPass.Text = "Password: ";
+            DocPass.TextChanged += DocPass_TextChanged;
             // 
-            // dataGridView1
+            // DoctorGV
             // 
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(468, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(444, 432);
-            dataGridView1.TabIndex = 5;
+            DoctorGV.BackgroundColor = SystemColors.ActiveCaption;
+            DoctorGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DoctorGV.Location = new Point(468, 133);
+            DoctorGV.Name = "DoctorGV";
+            DoctorGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DoctorGV.Size = new Size(444, 432);
+            DoctorGV.TabIndex = 5;
+            DoctorGV.CellContentClick += DoctorGV_CellContentClick;
             // 
             // button1
             // 
@@ -170,6 +173,7 @@
             button1.TabIndex = 6;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -184,6 +188,7 @@
             button2.TabIndex = 7;
             button2.Text = "Update";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -198,6 +203,7 @@
             button3.TabIndex = 8;
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // Doctor
             // 
@@ -207,20 +213,21 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(DoctorId);
+            Controls.Add(DoctorGV);
+            Controls.Add(DocPass);
+            Controls.Add(DocName);
+            Controls.Add(DocExp);
+            Controls.Add(DocId);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Doctor";
             Text = "Doctor";
+            Load += Doctor_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DoctorGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,11 +237,11 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
-        private TextBox DoctorId;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private DataGridView dataGridView1;
+        private TextBox DocId;
+        private TextBox DocExp;
+        private TextBox DocName;
+        private TextBox DocPass;
+        private DataGridView DoctorGV;
         private Button button1;
         private Button button2;
         private Button button3;

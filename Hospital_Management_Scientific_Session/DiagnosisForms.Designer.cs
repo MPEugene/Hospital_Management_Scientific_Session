@@ -33,31 +33,34 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            dataGridView1 = new DataGridView();
-            textBox5 = new TextBox();
-            comboBox1 = new ComboBox();
-            textBox4 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            DoctorId = new TextBox();
+            MedicineTb = new TextBox();
+            PatientIdCb = new ComboBox();
+            SymptomsTb = new TextBox();
+            DiagnosisTb = new TextBox();
+            PatientTb = new TextBox();
+            DiagId = new TextBox();
             pictureBox1 = new PictureBox();
             PatientInfo = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
+            diagsummary = new Panel();
             label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
+            Diagnosislbl = new Label();
+            medicineslbl = new Label();
+            Symptomslbl = new Label();
+            PatientNamelbl = new Label();
             label4 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            DiagnosisGV = new DataGridView();
+            button4 = new Button();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            diagsummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DiagnosisGV).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -66,11 +69,11 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.MenuHighlight;
-            label3.Location = new Point(29, 440);
+            label3.Location = new Point(12, 460);
             label3.Name = "label3";
-            label3.Size = new Size(159, 24);
+            label3.Size = new Size(175, 24);
             label3.TabIndex = 29;
-            label3.Text = "PATIENTS LIST";
+            label3.Text = "DIAGNOSIS LIST";
             label3.Click += label3_Click;
             // 
             // button3
@@ -86,6 +89,7 @@
             button3.TabIndex = 28;
             button3.Text = "Update";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -100,6 +104,7 @@
             button2.TabIndex = 27;
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -108,78 +113,72 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.WhiteSmoke;
-            button1.Location = new Point(29, 375);
+            button1.Location = new Point(28, 375);
             button1.Name = "button1";
             button1.Size = new Size(91, 35);
             button1.TabIndex = 26;
             button1.Text = "Add";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // dataGridView1
+            // MedicineTb
             // 
-            dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(29, 492);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(892, 204);
-            dataGridView1.TabIndex = 25;
+            MedicineTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MedicineTb.Location = new Point(29, 281);
+            MedicineTb.Name = "MedicineTb";
+            MedicineTb.Size = new Size(321, 29);
+            MedicineTb.TabIndex = 24;
+            MedicineTb.Text = "Medicines: ";
             // 
-            // textBox5
+            // PatientIdCb
             // 
-            textBox5.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(29, 281);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(321, 29);
-            textBox5.TabIndex = 24;
-            textBox5.Text = "Medicines: ";
+            PatientIdCb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PatientIdCb.FormattingEnabled = true;
+            PatientIdCb.Location = new Point(29, 175);
+            PatientIdCb.Name = "PatientIdCb";
+            PatientIdCb.Size = new Size(321, 30);
+            PatientIdCb.TabIndex = 22;
+            PatientIdCb.Text = "PatientID: ";
+            PatientIdCb.SelectionChangeCommitted += PatientIdCb_SelectionChangeCommitted;
             // 
-            // comboBox1
+            // SymptomsTb
             // 
-            comboBox1.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(29, 175);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(321, 30);
-            comboBox1.TabIndex = 22;
-            comboBox1.Text = "PatientID: ";
+            SymptomsTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SymptomsTb.Location = new Point(29, 246);
+            SymptomsTb.Name = "SymptomsTb";
+            SymptomsTb.Size = new Size(321, 29);
+            SymptomsTb.TabIndex = 21;
+            SymptomsTb.Text = "Symptoms: ";
             // 
-            // textBox4
+            // DiagnosisTb
             // 
-            textBox4.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(29, 246);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(321, 29);
-            textBox4.TabIndex = 21;
-            textBox4.Text = "Symptoms: ";
+            DiagnosisTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DiagnosisTb.Location = new Point(29, 316);
+            DiagnosisTb.Name = "DiagnosisTb";
+            DiagnosisTb.Size = new Size(321, 29);
+            DiagnosisTb.TabIndex = 19;
+            DiagnosisTb.Text = "Diagnosis: ";
             // 
-            // textBox2
+            // PatientTb
             // 
-            textBox2.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(29, 316);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(321, 29);
-            textBox2.TabIndex = 19;
-            textBox2.Text = "Diagnosis: ";
+            PatientTb.Enabled = false;
+            PatientTb.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PatientTb.Location = new Point(29, 211);
+            PatientTb.Name = "PatientTb";
+            PatientTb.Size = new Size(321, 29);
+            PatientTb.TabIndex = 18;
+            PatientTb.Text = "Patient Name: ";
+            PatientTb.TextChanged += textBox1_TextChanged;
             // 
-            // textBox1
+            // DiagId
             // 
-            textBox1.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(29, 211);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(321, 29);
-            textBox1.TabIndex = 18;
-            textBox1.Text = "Patient Name: ";
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // DoctorId
-            // 
-            DoctorId.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DoctorId.Location = new Point(29, 140);
-            DoctorId.Name = "DoctorId";
-            DoctorId.Size = new Size(321, 29);
-            DoctorId.TabIndex = 17;
-            DoctorId.Text = "DiagnosisID: ";
-            DoctorId.TextChanged += DoctorId_TextChanged;
+            DiagId.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DiagId.Location = new Point(29, 140);
+            DiagId.Name = "DiagId";
+            DiagId.Size = new Size(321, 29);
+            DiagId.TabIndex = 17;
+            DiagId.Text = "DiagnosisID: ";
+            DiagId.TextChanged += DoctorId_TextChanged;
             // 
             // pictureBox1
             // 
@@ -231,6 +230,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(label5);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(PatientInfo);
             panel1.Controls.Add(label2);
@@ -238,22 +238,21 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(945, 114);
+            panel1.Size = new Size(1092, 114);
             panel1.TabIndex = 16;
             // 
-            // panel2
+            // diagsummary
             // 
-            panel2.Controls.Add(label10);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(label4);
-            panel2.Location = new Point(365, 120);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(556, 344);
-            panel2.TabIndex = 30;
+            diagsummary.Controls.Add(label10);
+            diagsummary.Controls.Add(Diagnosislbl);
+            diagsummary.Controls.Add(medicineslbl);
+            diagsummary.Controls.Add(Symptomslbl);
+            diagsummary.Controls.Add(PatientNamelbl);
+            diagsummary.Controls.Add(label4);
+            diagsummary.Location = new Point(365, 120);
+            diagsummary.Name = "diagsummary";
+            diagsummary.Size = new Size(556, 344);
+            diagsummary.TabIndex = 30;
             // 
             // label10
             // 
@@ -261,71 +260,59 @@
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.InactiveCaptionText;
-            label10.Location = new Point(202, 320);
+            label10.Location = new Point(205, 314);
             label10.Name = "label10";
-            label10.Size = new Size(351, 16);
+            label10.Size = new Size(348, 16);
             label10.TabIndex = 9;
-            label10.Text = "Hospital Management Sysyem by: Eugen and Andreea";
+            label10.Text = "Hospital Management System by: Eugen and Andreea";
             // 
-            // label9
+            // Diagnosislbl
             // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.InactiveCaptionText;
-            label9.Location = new Point(448, 10);
-            label9.Name = "label9";
-            label9.Size = new Size(36, 16);
-            label9.TabIndex = 8;
-            label9.Text = "Date";
+            Diagnosislbl.AutoSize = true;
+            Diagnosislbl.BackColor = Color.Transparent;
+            Diagnosislbl.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Diagnosislbl.ForeColor = SystemColors.InactiveCaptionText;
+            Diagnosislbl.Location = new Point(197, 71);
+            Diagnosislbl.Name = "Diagnosislbl";
+            Diagnosislbl.Size = new Size(103, 22);
+            Diagnosislbl.TabIndex = 7;
+            Diagnosislbl.Text = "Diagnosis";
             // 
-            // label8
+            // medicineslbl
             // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.InactiveCaptionText;
-            label8.Location = new Point(197, 71);
-            label8.Name = "label8";
-            label8.Size = new Size(103, 22);
-            label8.TabIndex = 7;
-            label8.Text = "Diagnosis";
+            medicineslbl.AutoSize = true;
+            medicineslbl.BackColor = Color.Transparent;
+            medicineslbl.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            medicineslbl.ForeColor = SystemColors.InactiveCaptionText;
+            medicineslbl.Location = new Point(195, 176);
+            medicineslbl.Name = "medicineslbl";
+            medicineslbl.Size = new Size(105, 22);
+            medicineslbl.TabIndex = 6;
+            medicineslbl.Text = "Medicines";
             // 
-            // label7
+            // Symptomslbl
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.ForeColor = SystemColors.InactiveCaptionText;
-            label7.Location = new Point(195, 176);
-            label7.Name = "label7";
-            label7.Size = new Size(105, 22);
-            label7.TabIndex = 6;
-            label7.Text = "Medicines";
+            Symptomslbl.AutoSize = true;
+            Symptomslbl.BackColor = Color.Transparent;
+            Symptomslbl.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Symptomslbl.ForeColor = SystemColors.InactiveCaptionText;
+            Symptomslbl.Location = new Point(24, 176);
+            Symptomslbl.Name = "Symptomslbl";
+            Symptomslbl.Size = new Size(109, 22);
+            Symptomslbl.TabIndex = 5;
+            Symptomslbl.Text = "Symptoms";
             // 
-            // label6
+            // PatientNamelbl
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.ForeColor = SystemColors.InactiveCaptionText;
-            label6.Location = new Point(24, 176);
-            label6.Name = "label6";
-            label6.Size = new Size(109, 22);
-            label6.TabIndex = 5;
-            label6.Text = "Symptoms";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = SystemColors.InactiveCaptionText;
-            label5.Location = new Point(24, 71);
-            label5.Name = "label5";
-            label5.Size = new Size(136, 22);
-            label5.TabIndex = 4;
-            label5.Text = "Patient Name ";
+            PatientNamelbl.AutoSize = true;
+            PatientNamelbl.BackColor = Color.Transparent;
+            PatientNamelbl.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PatientNamelbl.ForeColor = SystemColors.InactiveCaptionText;
+            PatientNamelbl.Location = new Point(24, 71);
+            PatientNamelbl.Name = "PatientNamelbl";
+            PatientNamelbl.Size = new Size(136, 22);
+            PatientNamelbl.TabIndex = 4;
+            PatientNamelbl.Text = "Patient Name ";
             // 
             // label4
             // 
@@ -339,34 +326,90 @@
             label4.TabIndex = 3;
             label4.Text = "DIAGNOSIS SUMMARY";
             // 
+            // DiagnosisGV
+            // 
+            DiagnosisGV.BackgroundColor = SystemColors.ActiveCaption;
+            DiagnosisGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DiagnosisGV.Location = new Point(12, 487);
+            DiagnosisGV.Name = "DiagnosisGV";
+            DiagnosisGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DiagnosisGV.Size = new Size(892, 297);
+            DiagnosisGV.TabIndex = 17;
+            DiagnosisGV.CellContentClick += DiagnosisGV_CellContentClick;
+            // 
+            // button4
+            // 
+            button4.BackColor = SystemColors.MenuHighlight;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.WhiteSmoke;
+            button4.Location = new Point(927, 458);
+            button4.Name = "button4";
+            button4.Size = new Size(89, 29);
+            button4.TabIndex = 31;
+            button4.Text = "Print";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.InactiveCaptionText;
+            label5.Location = new Point(987, 22);
+            label5.Name = "label5";
+            label5.Size = new Size(29, 29);
+            label5.TabIndex = 15;
+            label5.Text = "X";
+            label5.Click += label5_Click;
+            // 
             // DiagnosisForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(945, 717);
-            Controls.Add(panel2);
+            ClientSize = new Size(1092, 779);
+            Controls.Add(button4);
+            Controls.Add(DiagnosisGV);
+            Controls.Add(diagsummary);
             Controls.Add(label3);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox5);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(DoctorId);
+            Controls.Add(MedicineTb);
+            Controls.Add(PatientIdCb);
+            Controls.Add(SymptomsTb);
+            Controls.Add(DiagnosisTb);
+            Controls.Add(PatientTb);
+            Controls.Add(DiagId);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DiagnosisForms";
             Text = "DiagnosisForms";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += DiagnosisForms_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            diagsummary.ResumeLayout(false);
+            diagsummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DiagnosisGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -377,25 +420,28 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private DataGridView dataGridView1;
-        private TextBox textBox5;
-        private ComboBox comboBox1;
-        private TextBox textBox4;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private TextBox DoctorId;
+        private TextBox MedicineTb;
+        private ComboBox PatientIdCb;
+        private TextBox SymptomsTb;
+        private TextBox DiagnosisTb;
+        private TextBox PatientTb;
+        private TextBox DiagId;
         private PictureBox pictureBox1;
         private PictureBox PatientInfo;
         private Label label2;
         private Label label1;
         private Panel panel1;
-        private Panel panel2;
+        private Panel diagsummary;
         private Label label4;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
+        private Label Diagnosislbl;
+        private Label medicineslbl;
+        private Label Symptomslbl;
+        private Label PatientNamelbl;
         private Label label10;
-        private Label label9;
+        private DataGridView DiagnosisGV;
+        private Button button4;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private Label label5;
     }
 }

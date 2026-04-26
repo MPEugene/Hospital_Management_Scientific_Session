@@ -37,6 +37,7 @@
             DiagnosisLabel = new Label();
             Diagnosis = new PictureBox();
             LogOut = new PictureBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)Doctor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PatientInfo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Diagnosis).BeginInit();
@@ -65,6 +66,7 @@
             Doctor.SizeMode = PictureBoxSizeMode.Zoom;
             Doctor.TabIndex = 1;
             Doctor.TabStop = false;
+            Doctor.Click += Doctor_Click;
             // 
             // DoctorLabel
             // 
@@ -100,6 +102,7 @@
             PatientInfo.SizeMode = PictureBoxSizeMode.Zoom;
             PatientInfo.TabIndex = 4;
             PatientInfo.TabStop = false;
+            PatientInfo.Click += PatientInfo_Click;
             // 
             // DiagnosisLabel
             // 
@@ -123,6 +126,7 @@
             Diagnosis.SizeMode = PictureBoxSizeMode.Zoom;
             Diagnosis.TabIndex = 6;
             Diagnosis.TabStop = false;
+            Diagnosis.Click += Diagnosis_Click;
             // 
             // LogOut
             // 
@@ -136,12 +140,26 @@
             LogOut.TabStop = false;
             LogOut.Click += pictureBox3_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.InactiveCaptionText;
+            label5.Location = new Point(12, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(29, 29);
+            label5.TabIndex = 16;
+            label5.Text = "X";
+            label5.Click += label5_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Gemini_Generated_Image_ld222kld222kld221;
             ClientSize = new Size(972, 548);
+            Controls.Add(label5);
             Controls.Add(LogOut);
             Controls.Add(Diagnosis);
             Controls.Add(DiagnosisLabel);
@@ -171,5 +189,6 @@
         private Label DiagnosisLabel;
         private PictureBox Diagnosis;
         private PictureBox LogOut;
+        private Label label5;
     }
 }
